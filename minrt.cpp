@@ -23,7 +23,6 @@ template<typename T> inline T fneg_cond( T cond, T x ){
 }
 
 // (x+y) mod 5
-// #define add_mod5(x,y) ( ( (x) + (y) ) % 5 )
 template<typename T> inline T add_mod5( T x, T y ){
   T sum = x + y;
   if( sum >= 5 )
@@ -32,7 +31,7 @@ template<typename T> inline T add_mod5( T x, T y ){
     return sum;
 }
 
-// primitieves for vector operations
+// primitieves for vector operation
 // assign
 template<typename T> inline void vecset( T *v, T x, T y, T z){
   v[0] = x;
@@ -83,6 +82,7 @@ template<typename T> inline void vecunit_sgn( T *v, bool inv ){
   v[1] *= il;
   v[2] *= il;
 }
+
 // inner product
 template<typename T> inline T veciprod( T *v, T *w ){
   return
@@ -90,6 +90,7 @@ template<typename T> inline T veciprod( T *v, T *w ){
     + v[1] * w[1]
     + v[2] * w[2];
 }
+
 // different form of inner prod
 template<typename T> inline T veciprod( T *v, T w0, T w1, T w2 ){
   return
@@ -97,30 +98,35 @@ template<typename T> inline T veciprod( T *v, T w0, T w1, T w2 ){
     + v[1] * w1
     + v[2] * w2;
 }
+
 // dest += scale * v
 template<typename T> inline void vecaccum( T *dest, T scale, T *v){
   dest[0] += scale * v[0];
   dest[1] += scale * v[1];
   dest[2] += scale * v[2];  
 }
+
 // add
 template<typename T> inline void vecadd( T *dest, T *v){
   dest[0] += v[0];
   dest[1] += v[1];
   dest[2] += v[2];
 }
+
 // mult
 template<typename T> inline void vecmul( T *dest, T *v){
   dest[0] *= v[0];
   dest[1] *= v[1];
   dest[2] *= v[2];
 }
+
 // scaling
 template<typename T> inline void vecscale( T *dest, T scale ){
   dest[0] *= scale;
   dest[1] *= scale;
   dest[2] *= scale;
 }
+
 // dest += v*w
 template<typename T> inline void vecaccumv( T *dest, T *v, T *w ){
   dest[0] += v[0] * w[0];
